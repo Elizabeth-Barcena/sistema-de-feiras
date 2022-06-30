@@ -1,15 +1,29 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CadastroDeFeiraService } from './cadastro-de-feira.service';
-import cadatroDeFeirasDto from './dto/cadastroDeFeiras.sto';
+import { Repository } from 'typeorm';
+import cadastroDeFeirasDto from './dto/cadastroDeFeiras.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { cadastroDeFeiraEntity } from './cadastroDeFeira.Entity';
+
 @ApiTags('Cadastro da feira')
 @Controller('cadastro-de-feira')
 export class CadastroDeFeiraController {
   constructor(
-    private readonly cadastroDeFeiraService: CadastroDeFeiraService,
+    @InjectRepository(cadastroDeFeiraEntity)
+    private cadastroDeFeirasRepository: Repository<cadastroDeFeiraEntity>,
   ) {}
+
   @Post()
-  request(@Body() cadastroDeFeirasRequest: cadatroDeFeirasDto) {
+  async request(@Body() cadastroDeFeirasRequest: cadastroDeFeirasDto) {
+    await this.cadastroDeFeirasRepository.save(
+      this.cadastroDeFeirasRepository.create({
+        Data: cadastroDeFeirasRequest.Data,
+        Local: cadastroDeFeirasRequest.Local,
+        CreatedAt: cadastroDeFeirasRequest.createdAt,
+        UpdateAt: cadastroDeFeirasRequest.updatedAt,
+      }),
+    );
+    console.log(await this.cadastroDeFeirasRepository.find());
     return 'ok';
   }
 }
