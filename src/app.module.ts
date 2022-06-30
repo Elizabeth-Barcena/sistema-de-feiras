@@ -8,6 +8,8 @@ import { cadastroDeArremateEntity } from './cadastro-de-arremate/cadastroDeArrem
 import { cadastroDeFeiraEntity } from './cadastro-de-feira/cadastroDeFeira.Entity';
 import { CadastroDeFeiraController } from './cadastro-de-feira/cadastro-de-feira.controller';
 import { CadastroDeArremateController } from './cadastro-de-arremate/cadastro-de-arremate.controller';
+import { CadastroDeArremateService } from './cadastro-de-arremate/cadastro-de-arremate.service';
+import { CadastroDeFeiraService } from './cadastro-de-feira/cadastro-de-feira.service';
 
 @Module({
   imports: [
@@ -29,6 +31,6 @@ import { CadastroDeArremateController } from './cadastro-de-arremate/cadastro-de
     CadastroDeFeiraController,
     CadastroDeArremateController,
   ],
-  providers: [AppService],
+  providers: [AppService, CadastroDeArremateService, CadastroDeFeiraService],
 })
 export class AppModule {}
