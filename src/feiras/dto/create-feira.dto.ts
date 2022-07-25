@@ -1,14 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class cadastroDeFeirasDto {
+export class CreateFeiraDto {
   @ApiProperty({ description: 'Data da feira' })
-  'Data': Date;
+  'data': Date;
   @ApiProperty({ description: 'Local que será realizado a feira' })
-  'Local': string;
+  'local': string;
   @ApiProperty()
   'createdAt': Date;
   @ApiProperty()
   'updatedAt': Date;
 }
-
-export default cadastroDeFeirasDto;

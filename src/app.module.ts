@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CadastroDeFeiraModule } from './cadastro-de-feira/cadastro-de-feira.module';
-import { CadastroDeArremateModule } from './cadastro-de-arremate/cadastro-de-arremate.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { cadastroDeArremateEntity } from './cadastro-de-arremate/cadastroDeArremate.entity';
-import { cadastroDeFeiraEntity } from './cadastro-de-feira/cadastroDeFeira.Entity';
-import { CadastroDeFeiraController } from './cadastro-de-feira/cadastro-de-feira.controller';
-import { CadastroDeArremateController } from './cadastro-de-arremate/cadastro-de-arremate.controller';
-import { CadastroDeArremateService } from './cadastro-de-arremate/cadastro-de-arremate.service';
-import { CadastroDeFeiraService } from './cadastro-de-feira/cadastro-de-feira.service';
+import { ArremateModule } from './arremate/arremate.module';
+import { FeirasModule } from './feiras/feiras.module';
+import { ArremateController } from './arremate/arremate.controller';
+import { FeirasController } from './feiras/feiras.controller';
+import { ArremateEntity } from './arremate/arremate.Entity';
+import { ArremateService } from './arremate/arremate.service';
+import { FeirasService } from './feiras/feiras.service';
+import { FeiraEntity } from './feiras/feira.Entity';
 
 @Module({
   imports: [
@@ -20,17 +20,13 @@ import { CadastroDeFeiraService } from './cadastro-de-feira/cadastro-de-feira.se
       username: 'root',
       password: '123456',
       database: 'SistemaFeiras',
-      entities: [cadastroDeArremateEntity, cadastroDeFeiraEntity],
+      entities: [ArremateEntity, FeiraEntity],
       synchronize: true,
     }),
-    CadastroDeFeiraModule,
-    CadastroDeArremateModule,
+    ArremateModule,
+    FeirasModule,
   ],
-  controllers: [
-    AppController,
-    CadastroDeFeiraController,
-    CadastroDeArremateController,
-  ],
-  providers: [AppService, CadastroDeArremateService, CadastroDeFeiraService],
+  controllers: [AppController, ArremateController, FeirasController],
+  providers: [AppService, ArremateService, FeirasService],
 })
 export class AppModule {}
