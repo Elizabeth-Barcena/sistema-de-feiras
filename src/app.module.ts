@@ -6,10 +6,10 @@ import { ArremateModule } from './arremate/arremate.module';
 import { FeirasModule } from './feiras/feiras.module';
 import { ArremateController } from './arremate/arremate.controller';
 import { FeirasController } from './feiras/feiras.controller';
-import { ArremateEntity } from './arremate/arremate.Entity';
+import { ArremateEntity } from './arremate/entities/arremate.Entity';
 import { ArremateService } from './arremate/arremate.service';
 import { FeirasService } from './feiras/feiras.service';
-import { FeiraEntity } from './feiras/feira.Entity';
+import { FeiraEntity } from './feiras/entities/feira.Entity';
 
 @Module({
   imports: [

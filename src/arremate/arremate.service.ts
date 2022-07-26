@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateArremateDto } from './dto/create-arremate.dto';
 import { UpdateArremateDto } from './dto/update-arremate.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ArremateEntity } from './arremate.Entity';
+import { ArremateEntity } from './entities/arremate.Entity';
 import { Repository } from 'typeorm';
 @Injectable()
 export class ArremateService {
@@ -21,6 +21,7 @@ export class ArremateService {
         peso: arremateRequest.peso,
         cabecas: arremateRequest.cabecas,
         localidade: arremateRequest.localidade,
+        sexo: arremateRequest.sexo,
         leiloeira: arremateRequest.leiloeira,
         status: arremateRequest.status,
         pesoLote: arremateRequest.pesoLote,

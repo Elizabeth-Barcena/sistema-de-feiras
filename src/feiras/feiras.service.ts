@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFeiraDto } from './dto/create-feira.dto';
 import { UpdateFeiraDto } from './dto/update-feira.dto';
-import { FeiraEntity } from './feira.Entity';
+import { FeiraEntity } from './entities/feira.Entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 @Injectable()
@@ -13,6 +13,7 @@ export class FeirasService {
   async cadastroDeArremate(feiraRequest: CreateFeiraDto) {
     const response = await this.feiraRepository.save(
       this.feiraRepository.create({
+        nome: feiraRequest.nome,
         data: feiraRequest.data,
         local: feiraRequest.local,
         createdAt: feiraRequest.createdAt,
