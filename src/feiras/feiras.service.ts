@@ -11,16 +11,21 @@ export class FeirasService {
     private feiraRepository: Repository<FeiraEntity>,
   ) {}
   async cadastroDeArremate(feiraRequest: CreateFeiraDto) {
-    const response = await this.feiraRepository.save(
-      this.feiraRepository.create({
-        nome: feiraRequest.nome,
-        data: feiraRequest.data,
-        local: feiraRequest.local,
-        createdAt: feiraRequest.createdAt,
-        updateAt: feiraRequest.updatedAt,
-      }),
-    );
-    return response;
+    try {
+      console.log(feiraRequest, 'Qualquer coisa');
+      const response = await this.feiraRepository.save(
+        this.feiraRepository.create({
+          nome: feiraRequest.nome,
+          data: feiraRequest.data,
+          local: feiraRequest.local,
+          createdAt: feiraRequest.createdAt,
+          updateAt: feiraRequest.updatedAt,
+        }),
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async findAll() {

@@ -2,13 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFeiraDto {
   @ApiProperty({ description: 'Nome da feira' })
-  'nome': string;
+  nome: string;
   @ApiProperty({ description: 'Data da feira' })
-  'data': Date;
+  data: Date;
   @ApiProperty({ description: 'Local que será realizado a feira' })
-  'local': string;
+  local: string;
   @ApiProperty()
-  'createdAt': Date;
+  createdAt: Date;
   @ApiProperty()
-  'updatedAt': Date;
+  updatedAt: Date;
 }

@@ -42,5 +42,7 @@ export class CreateArremateDto {
 
   @ApiProperty()
   precoKg: string;
+  @ApiProperty()
+  isFeira: number;
 }
 export default CreateArremateDto;

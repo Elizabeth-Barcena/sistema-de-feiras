@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   OneToMany,
@@ -13,7 +14,7 @@ export class FeiraEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: true })
   data: Date;
 
   @Column()
@@ -22,10 +23,10 @@ export class FeiraEntity {
   @Column()
   local: string;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column()
+  @CreateDateColumn()
   updateAt: Date;
 
   @JoinColumn()
