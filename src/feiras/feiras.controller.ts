@@ -27,15 +27,6 @@ export class FeirasController {
     console.log(response);
     return response;
   }
-  /*@Post()
-  async create(@Req() request: any, @Res() response: any) {
-    const requestBody = {
-      data: request.data,
-      local: request.local,
-      name: request.name,
-    };
-    console.log(requestBody);
-  }*/
 
   @Get()
   findAll() {

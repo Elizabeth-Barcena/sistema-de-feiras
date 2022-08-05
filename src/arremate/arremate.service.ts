@@ -43,7 +43,7 @@ export class ArremateService {
 
   async update(id: number, updateArremateDto: UpdateArremateDto) {
     const busca = await this.ArremateRepository.findOneBy({ id });
-    this.ArremateRepository.merge(busca, updateArremateDto);
+    this.ArremateRepository.merge(busca);
 
     return await this.ArremateRepository.save(busca);
   }

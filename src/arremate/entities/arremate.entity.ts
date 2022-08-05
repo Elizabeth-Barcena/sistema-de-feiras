@@ -47,8 +47,6 @@ export class ArremateEntity {
   @Column()
   precoKg: string;
 
-  @Column()
-  idfeira: number;
-  @ManyToOne(() => FeiraEntity)
+  @ManyToOne(() => FeiraEntity, (Feira) => Feira.id)
   feira: FeiraEntity;
 }
