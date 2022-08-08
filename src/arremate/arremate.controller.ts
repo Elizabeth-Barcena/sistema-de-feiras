@@ -31,8 +31,8 @@ export class ArremateController {
   }
 
   @Get(':id')
-  findOne(@Param('id') idfeira: string) {
-    return this.arremateService.findOne(+idfeira);
+  findOne(@Param('id') idFeira: string) {
+    return this.arremateService.findOne(+idFeira);
   }
 
   @Patch(':id')

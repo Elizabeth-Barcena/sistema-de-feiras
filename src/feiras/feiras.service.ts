@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFeiraDto } from './dto/create-feira.dto';
 import { UpdateFeiraDto } from './dto/update-feira.dto';
-import { FeiraEntity } from './entities/feira.Entity';
+import { FeiraEntity } from './entities/feira.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 @Injectable()

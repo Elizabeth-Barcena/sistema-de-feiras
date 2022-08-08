@@ -1,4 +1,5 @@
-import { FeiraEntity } from 'src/feiras/entities/feira.Entity';
+import { type } from 'os';
+import { FeiraEntity } from 'src/feiras/entities/feira.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class ArremateEntity {
@@ -47,6 +48,8 @@ export class ArremateEntity {
   @Column()
   precoKg: string;
 
-  @ManyToOne(() => FeiraEntity, (Feira) => Feira.id)
+  @ManyToOne((type) => FeiraEntity, (arremates) => ArremateEntity, {
+    eager: true,
+  })
   feira: FeiraEntity;
 }

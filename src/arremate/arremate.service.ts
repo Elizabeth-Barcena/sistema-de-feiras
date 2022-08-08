@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateArremateDto } from './dto/create-arremate.dto';
 import { UpdateArremateDto } from './dto/update-arremate.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ArremateEntity } from './entities/arremate.Entity';
+import { ArremateEntity } from './entities/arremate.entity';
 import { Repository } from 'typeorm';
 @Injectable()
 export class ArremateService {
@@ -11,6 +11,8 @@ export class ArremateService {
     private ArremateRepository: Repository<ArremateEntity>,
   ) {}
   async cadastroDeArremate(arremateRequest: CreateArremateDto) {
+    console.log('valores', arremateRequest);
+
     const arremate = await this.ArremateRepository.save(
       this.ArremateRepository.create({
         lote: arremateRequest.lote,
@@ -36,8 +38,8 @@ export class ArremateService {
     const response = await this.ArremateRepository.find();
     return response;
   }
-  async findOne(id: number) {
-    const response = await this.ArremateRepository.findOneBy({ id });
+  async findOne(idFeira: number) {
+    const response = await this.ArremateRepository.findOneBy({ idFeira });
     return response;
   }
 
