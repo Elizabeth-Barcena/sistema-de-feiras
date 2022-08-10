@@ -44,6 +44,6 @@ export class CreateArremateDto {
   precoKg: string;
 
   @ApiProperty()
-  feira: number;
+  feiraId: number;
 }
 export default CreateArremateDto;

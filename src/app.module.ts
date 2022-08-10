@@ -21,7 +21,7 @@ import { FeiraEntity } from './feiras/entities/feira.entity';
       password: '123456',
       database: 'SistemaFeiras',
       entities: [ArremateEntity, FeiraEntity],
-      synchronize: true,
+      synchronize: false,
     }),
     ArremateModule,
     FeirasModule,

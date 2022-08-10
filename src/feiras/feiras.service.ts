@@ -29,7 +29,7 @@ export class FeirasService {
   }
 
   async findAll() {
-    const response = await this.feiraRepository.find({});
+    const response = await this.feiraRepository.find();
     return response;
   }
 

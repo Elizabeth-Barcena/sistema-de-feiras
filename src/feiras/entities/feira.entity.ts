@@ -2,12 +2,8 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
-import { ArremateEntity } from 'src/arremate/entities/arremate.entity';
 
 @Entity()
 export class FeiraEntity {
@@ -28,7 +24,4 @@ export class FeiraEntity {
 
   @CreateDateColumn()
   updateAt: Date;
-
-  @OneToMany((type) => ArremateEntity, (feira) => FeiraEntity)
-  arremates: ArremateEntity[];
 }

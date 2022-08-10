@@ -39,7 +39,7 @@ export class FeirasController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFeiraDto: UpdateFeiraDto) {
+  update(@Param('id') id: number, @Body() updateFeiraDto: UpdateFeiraDto) {
     return this.feirasService.update(+id, updateFeiraDto);
   }
 

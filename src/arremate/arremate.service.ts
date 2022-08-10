@@ -29,6 +29,7 @@ export class ArremateService {
         pesoLote: arremateRequest.pesoLote,
         comprador: arremateRequest.comprador,
         precoKg: arremateRequest.precoKg,
+        feiraId: arremateRequest.feiraId,
       }),
     );
     return arremate;
@@ -38,13 +39,15 @@ export class ArremateService {
     const response = await this.ArremateRepository.find();
     return response;
   }
-  async findOne(idFeira: number) {
-    const response = await this.ArremateRepository.findOneBy({ idFeira });
+  async findOne(feiraId: number) {
+    const response = await this.ArremateRepository.find({
+      where: { feiraId: feiraId },
+    });
     return response;
   }
 
-  async update(id: number, updateArremateDto: UpdateArremateDto) {
-    const busca = await this.ArremateRepository.findOneBy({ id });
+  async update(feiraId: number, updateArremateDto: UpdateArremateDto) {
+    const busca = await this.ArremateRepository.findOneBy({ feiraId });
     this.ArremateRepository.merge(busca);
 
     return await this.ArremateRepository.save(busca);

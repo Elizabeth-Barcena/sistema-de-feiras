@@ -48,8 +48,6 @@ export class ArremateEntity {
   @Column()
   precoKg: string;
 
-  @ManyToOne((type) => FeiraEntity, (arremates) => ArremateEntity, {
-    eager: true,
-  })
-  feira: FeiraEntity;
+  @Column()
+  feiraId: number;
 }

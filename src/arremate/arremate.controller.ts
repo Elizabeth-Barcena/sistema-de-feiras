@@ -31,16 +31,16 @@ export class ArremateController {
   }
 
   @Get(':id')
-  findOne(@Param('id') idFeira: string) {
-    return this.arremateService.findOne(+idFeira);
+  findOne(@Param('id') feiraId: string) {
+    return this.arremateService.findOne(+feiraId);
   }
 
   @Patch(':id')
   update(
-    @Param('id') id: string,
+    @Param('id') feiraId: string,
     @Body() updateArremateDto: UpdateArremateDto,
   ) {
-    return this.arremateService.update(+id, updateArremateDto);
+    return this.arremateService.update(+feiraId, updateArremateDto);
   }
 
   @Delete(':id')
