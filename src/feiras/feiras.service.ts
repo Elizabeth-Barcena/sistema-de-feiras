@@ -39,6 +39,7 @@ export class FeirasService {
   }
 
   async update(id: number, updateFeiraDto: UpdateFeiraDto) {
+    console.log(updateFeiraDto);
     const response = await this.feiraRepository.findOneBy({ id });
     this.feiraRepository.merge(response, updateFeiraDto);
     return await this.feiraRepository.save(response);

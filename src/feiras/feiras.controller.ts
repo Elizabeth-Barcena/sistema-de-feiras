@@ -40,7 +40,7 @@ export class FeirasController {
 
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateFeiraDto: UpdateFeiraDto) {
-    return this.feirasService.update(+id, updateFeiraDto);
+    return this.feirasService.update(id, updateFeiraDto);
   }
 
   @Delete(':id')
