@@ -47,7 +47,7 @@ export class ArremateService {
   }
 
   async update(feiraId: number, updateArremateDto: UpdateArremateDto) {
-    const busca = await this.ArremateRepository.findOneBy({ feiraId });
+    const busca = await this.ArremateRepository.findOneBy({ id: feiraId});
     this.ArremateRepository.merge(busca,updateArremateDto);
 
     return await this.ArremateRepository.save(busca);
@@ -55,5 +55,9 @@ export class ArremateService {
 
   remove(id: number) {
     return this.ArremateRepository.delete({ id });
+  }
+
+  removeFeiraId(feiraId: number) {
+    return this.ArremateRepository.delete({ feiraId });
   }
 }

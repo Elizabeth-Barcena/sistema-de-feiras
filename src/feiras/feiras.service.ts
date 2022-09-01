@@ -4,11 +4,14 @@ import { UpdateFeiraDto } from './dto/update-feira.dto';
 import { FeiraEntity } from './entities/feira.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import {ArremateService} from '../arremate/arremate.service'
+
 @Injectable()
 export class FeirasService {
   constructor(
     @InjectRepository(FeiraEntity)
     private feiraRepository: Repository<FeiraEntity>,
+    private arremateService: ArremateService
   ) {}
   async cadastroDeArremate(feiraRequest: CreateFeiraDto) {
     try {
@@ -47,6 +50,8 @@ export class FeirasService {
   return;
 
   remove(id: number) {
-    return this.feiraRepository.delete({ id });
+    
+    this.feiraRepository.delete({ id });
+    this.arremateService.removeFeiraId(id);
   }
 }

@@ -40,6 +40,8 @@ export class ArremateController {
     @Param('id') feiraId: string,
     @Body() updateArremateDto: UpdateArremateDto,
   ) {
+    console.log('body ', updateArremateDto)
+    console.log('id ', feiraId)
     return this.arremateService.update(+feiraId, updateArremateDto);
   }
 

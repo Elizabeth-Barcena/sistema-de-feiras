@@ -8,6 +8,6 @@ import { FeiraEntity } from 'src/feiras/entities/feira.entity';
   imports: [TypeOrmModule.forFeature([ArremateEntity, FeiraEntity])],
   controllers: [ArremateController],
   providers: [ArremateService],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, ArremateService],
 })
 export class ArremateModule {}
